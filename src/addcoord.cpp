@@ -4,7 +4,7 @@
 //
 //      Add coordinates to txt matrix for LabSpec Maps
 //														 
-//		v. 1.3 - 20150224
+//		v. 1.3.1 - 20150224
 //
 //		2013-2015 (C) Copyright - Nicola Ferralis <ferralis@mit.edu>
 //                                                        
@@ -39,7 +39,7 @@ int operate(char *namein, char *nameinfo);
 void createNew();
 
 
-char version[]="1.2 - 20140702";
+char version[]="1.3.1 - 20150224";
 char extension[]="map-";
 char nameout[]="addcoord.txt";
 
@@ -138,7 +138,7 @@ int operate(char *namein, char *nameinfo)
     
     double xgrid, ygrid = 0.0;
     
-	if (nrows ==0 && ncols ==0) {
+	if (nrows ==0 || ncols ==0) {
 		cout<<"\n number of rows or columns is zero.";
 		return 0;
 	}
