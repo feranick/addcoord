@@ -4,10 +4,10 @@
 //
 //      Add coordinates to txt matrix for LabSpec Maps
 //														 
-//		v. 1.2 - 20140702
+//		v. 1.3 - 20150224
 //
-//		2013-2014 (C) Copyright - Nicola Ferralis <ferralis@mit.edu>
-//                                                        //
+//		2013-2015 (C) Copyright - Nicola Ferralis <ferralis@mit.edu>
+//                                                        
 //		This program (source code and binaries) is free software; 
 //		you can redistribute it and/or modify it under the terms of the
 //		GNU General Public License as published by the Free Software 
@@ -138,17 +138,22 @@ int operate(char *namein, char *nameinfo)
     
     double xgrid, ygrid = 0.0;
     
-    xgrid = (xmax - xmin)/nrows;
-    ygrid = (ymax - ymin)/ncols;
-    
+	if (nrows ==0 && ncols ==0) {
+		cout<<"\n number of rows or columns is zero.";
+		return 0;
+	}
+	else {
+	
+		xgrid = (xmax - xmin)/nrows;
+		ygrid = (ymax - ymin)/ncols;
+	}
+	
     cout << " xmin: "<<xmin<<endl;
     cout << " xmax: "<<xmax<<endl;
     cout << " ymin: "<<ymin<<endl;
     cout << " ymax: "<<ymax<<endl;
     cout << " xgrid: "<<xgrid<<endl;
     cout << " ygrid: "<<ygrid<<endl<<endl;
-
-    
     
     char* outname = new char[strlen(namein)+strlen(extension)+1];
     sprintf(outname, "%.*s%s", (int)  strlen(namein)+5, extension, namein);
